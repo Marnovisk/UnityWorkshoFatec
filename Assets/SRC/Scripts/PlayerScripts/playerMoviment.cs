@@ -21,13 +21,35 @@ public class playerMoviment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
-        RaycastHit hit;
+        PlayerInput();        
+    }
 
-        if(Physics.Raycast(ray, Mathf.Infinity, groundLayer))
+    private void PlayerInput()
+    {
+        if(Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
         {
-            
-        }   
+            ManageMovement();
+        }
+
+    }
+
+    private void ManageMovement()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
+
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+            {
+                if (hit.collider.CompareTag("Ground"))
+                {
+                    Debug.Log("HITANDO CHAO");
+
+                    nav.SetDestination(hit.point);
+                }
+                
+            }   
     }
 }
