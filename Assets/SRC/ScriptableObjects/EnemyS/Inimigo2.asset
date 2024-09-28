@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb519dfc929b7e48aab358999d0c76f, type: 3}
+  m_Name: Inimigo2
+  m_EditorClassIdentifier: 
+  Status:
+    Health: 200
+    Armor: 20
+    MagicResist: 15
+  AttackRange: 0
+  AttackSpeed: 0
+  AttackDamage: 
+  GFX: {fileID: 4737539376364554987, guid: a3610a4e71ac52942a448fac310543b6, type: 3}
