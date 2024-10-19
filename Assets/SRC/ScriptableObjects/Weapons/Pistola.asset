@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb519dfc929b7e48aab358999d0c76f, type: 3}
-  m_Name: Inimigo2
+  m_Script: {fileID: 11500000, guid: acc9a1aad24be664eb16e503ae442ca8, type: 3}
+  m_Name: Pistola
   m_EditorClassIdentifier: 
-  Status:
-    Health: 200
-    Armor: 20
-    MagicResist: 15
-  speed: 0
-  AttackRange: 2
+  Damage: 15
+  Range: 5
   AttackSpeed: 3
-  AttackDamage: 0f00000014000000
-  GFX: {fileID: 4737539376364554987, guid: a3610a4e71ac52942a448fac310543b6, type: 3}
+  projectileSpeed: 10
+  currentCooldown: 2
+  proj: {fileID: 8536921898283905863, guid: 912350776806fed459813643fe567b00, type: 3}
+  type: 2

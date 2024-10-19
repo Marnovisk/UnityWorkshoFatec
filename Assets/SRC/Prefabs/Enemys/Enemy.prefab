@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5055020363502629408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFXTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,8 @@ GameObject:
   - component: {fileID: 110043262829679379}
   - component: {fileID: 8900429249974145195}
   - component: {fileID: 4942966339688616599}
-  m_Layer: 0
+  - component: {fileID: 9164459350722489781}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +83,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 11400000, guid: 9eb6a343d6103174bb1f6e55b8000ee4, type: 2}
+  playerTransform: {fileID: 0}
   GFXTransform: {fileID: 5055020363502629408}
+  referencesOK: 0
 --- !u!195 &2064007914020073986
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -92,8 +95,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 4793362016832274234}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
+  m_Radius: 0.2
+  m_Speed: 0
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 600
@@ -104,7 +107,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &6772889618325585451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2adcd69e032e6142b22c7b80ab04bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &8900429249974145195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013bce46050934941a70629aade8801c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 9eb6a343d6103174bb1f6e55b8000ee4, type: 2}
   canAttack: 0
   currentAttackCooldown: 0
-  player: {fileID: 0}
 --- !u!114 &4942966339688616599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +162,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b30892743afd8408d6559b53e3f208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  States: 0
+--- !u!136 &9164459350722489781
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793362016832274234}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.5, z: 0}

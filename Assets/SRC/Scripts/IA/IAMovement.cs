@@ -9,9 +9,14 @@ public class IAMovement : MonoBehaviour
     private NavMeshAgent nav;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         nav = GetComponent<NavMeshAgent>();        
+    }
+
+    public void Init(EnemyScriptable brain)
+    {
+        nav.speed = brain.speed;
     }
 
     public bool Chase(Transform target)

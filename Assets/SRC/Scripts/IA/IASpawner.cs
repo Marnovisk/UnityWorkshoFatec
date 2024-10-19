@@ -9,7 +9,8 @@ public class IASpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnEnemy", 0,1);
+        //InvokeRepeating("SpawnEnemy", 0,1);
+        SpawnEnemy();
     }
 
     public void SpawnEnemy()
