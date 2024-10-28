@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class TargetProjectile : Projectile, ITargetWeapon
+public class HoamingProjectile : Projectile, ITargetWeapon
 {
-
-    public Vector3 targetPos;
-    public Vector3 targetDir;
-
+    public Transform target;
     public override void Awake()
     {
         base.Awake();
@@ -17,9 +13,7 @@ public class TargetProjectile : Projectile, ITargetWeapon
     public override void Init(Transform ptarget)
     {
         base.Init();
-        targetPos = ptarget.position;
-        targetDir = (targetPos - transform.position).normalized;
-        transform.Rotate(targetDir, Space.World);
+        target = ptarget;
         isReady = true;
 
         Destroy(this.gameObject, 10f);
@@ -28,8 +22,15 @@ public class TargetProjectile : Projectile, ITargetWeapon
     public override void Update()
     {
         if(isReady == false) return;
+        if(target == null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
         base.Update();
-        transform.position += targetDir * Time.deltaTime * brain.projectileSpeed;
+        //transform.position += targetDir * Time.deltaTime * brain.projectileSpeed;
+
+        transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * brain.projectileSpeed);
     }
 
     void OnTriggerEnter(Collider other)

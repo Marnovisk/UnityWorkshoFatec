@@ -12,7 +12,14 @@ public class CharacterStatusManager : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        status.Init();
+        
+    }
+
+    public void InitStatus(Status pStatus)
+    {
+        status.Health = pStatus.Health;
+        status.Armor = pStatus.Armor;
+        status.MagicResist = pStatus.MagicResist;
     }
 
     private void Update()   
@@ -29,6 +36,10 @@ public class CharacterStatusManager : MonoBehaviour, IDamagable
         status.Health -= amount;
 
         OnTakeDamage?.Invoke();
+
+        //Anima Dano
+        //Sangue
+        //Num Dnao
 
         if(status.Health <= 0)
         {
