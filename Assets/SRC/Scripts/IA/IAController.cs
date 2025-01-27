@@ -6,6 +6,7 @@ public class IAController : MonoBehaviour
 {
     [Header("MainData")]
     [SerializeField] private EnemyScriptable brain;
+    [SerializeField] private GameObject XPPrefab;
 
     [Header("MainData")]
     [SerializeField] private Transform playerTransform;
@@ -113,6 +114,6 @@ public class IAController : MonoBehaviour
 
     private void OnDestroy()
     {
-        //Instantiate()
+        Instantiate(XPPrefab, transform.position, Quaternion.identity);
     }
 }

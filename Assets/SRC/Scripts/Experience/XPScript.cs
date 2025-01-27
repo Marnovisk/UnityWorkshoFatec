@@ -35,6 +35,8 @@ public class XPScript : MonoBehaviour
     {
         if (other.tag != "Player") return;
 
-        other.GetComponent<playerExpirience>();
+        other.GetComponent<playerExpirience>().IncreaseXp(XPAmount);
+
+        Destroy(this.gameObject);
     }
 }

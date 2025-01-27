@@ -368,6 +368,7 @@ GameObject:
   - component: {fileID: 302180639}
   - component: {fileID: 302180640}
   - component: {fileID: 302180641}
+  - component: {fileID: 302180643}
   - component: {fileID: 302180642}
   m_Layer: 0
   m_Name: Player
@@ -500,6 +501,21 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &302180643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302180635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15759fb9e94e87648a1c9c63d3032902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponsScript: {fileID: 0}
+  NeededExpirience: 0
+  currentExpirience: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

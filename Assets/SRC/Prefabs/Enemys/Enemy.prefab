@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 11400000, guid: 9eb6a343d6103174bb1f6e55b8000ee4, type: 2}
+  XPPrefab: {fileID: 5893734591210354422, guid: 4f08cd06b6d87a249a2a7224380562d4,
+    type: 3}
   playerTransform: {fileID: 0}
   GFXTransform: {fileID: 5055020363502629408}
   referencesOK: 0

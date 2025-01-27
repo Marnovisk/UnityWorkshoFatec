@@ -5,6 +5,7 @@ using UnityEngine;
 public class HoamingProjectile : Projectile, ITargetWeapon
 {
     public Transform target;
+    public ParticleSystem explosion;
     public override void Awake()
     {
         base.Awake();
@@ -40,5 +41,9 @@ public class HoamingProjectile : Projectile, ITargetWeapon
         other.gameObject.GetComponent<IDamagable>().TakeDamage(brain.Damage);
 
         Destroy(this.gameObject);
+    }
+    private void OnDestroy()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }
