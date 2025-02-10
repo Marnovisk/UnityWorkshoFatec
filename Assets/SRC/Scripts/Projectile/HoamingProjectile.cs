@@ -44,6 +44,6 @@ public class HoamingProjectile : Projectile, ITargetWeapon
     }
     private void OnDestroy()
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        //Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }

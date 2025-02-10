@@ -33,10 +33,13 @@ public class XPScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player") return;
+        Debug.Log("Collide");
+        if (other.tag == "Player"){
 
-        other.GetComponent<playerExpirience>().IncreaseXp(XPAmount);
+            other.GetComponent<playerExpirience>().IncreaseXp(XPAmount);
+            Destroy(this.gameObject);
+        } 
 
-        Destroy(this.gameObject);
+        
     }
 }

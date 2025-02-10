@@ -12,10 +12,7 @@ public class playerMoviment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        nav = GetComponent<NavMeshAgent>();
-        
-        
+        nav = GetComponent<NavMeshAgent>();       
     }
 
     // Update is called once per frame
@@ -45,8 +42,6 @@ public class playerMoviment : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Ground"))
                 {
-                    Debug.Log("HITANDO CHAO");
-
                     nav.SetDestination(hit.point);
                 }
                 
