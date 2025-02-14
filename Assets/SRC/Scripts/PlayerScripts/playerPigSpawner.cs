@@ -6,12 +6,22 @@ using UnityEngine.AI;
 
 public class playerPigSpawner : MonoBehaviour
 {
+    public GameObject segmentPrefab;
+    
     private List<Transform> segments = new List<Transform>();
 
     void Start()
     {
         // Adiciona a cabeça da cobra como o primeiro segmento
         segments.Add(transform);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AddSegment(segmentPrefab);
+        }
     }
 
     public void MoveSegments(Vector3 previousHeadPosition)

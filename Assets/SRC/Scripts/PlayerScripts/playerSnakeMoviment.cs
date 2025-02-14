@@ -14,10 +14,7 @@ public class playerSnakeMoviment : MonoBehaviour
 
     [Header("Segments Controller")]
     public playerPigSpawner snakeSegments;
-    public GameObject segmentPrefab;
     
-    private int caralho;
-
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
@@ -47,12 +44,6 @@ public class playerSnakeMoviment : MonoBehaviour
         {
             _dir = Vector3.right;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            snakeSegments.AddSegment(segmentPrefab);
-            caralho += 1;
-        }
     }
 
     void FixedUpdate()
@@ -61,7 +52,7 @@ public class playerSnakeMoviment : MonoBehaviour
         {
             StartCoroutine(Move());
         }
-    }
+                }
 
     private IEnumerator Move()
     {
@@ -74,18 +65,16 @@ public class playerSnakeMoviment : MonoBehaviour
         _nextPos = previousPosition + _dir * gridSize;
 
         // Rotaciona a cabeça para olhar na direção do movimento
-        transform.rotation = Quaternion.LookRotation(_dir, Vector3.up);
+        //transform.rotation = Quaternion.LookRotation(_dir, Vector3.up);
 
         // Move a cabeça
-        nav.Warp(_nextPos);
+        //nav.Warp(_nextPos);
 
-        if(caralho > 0)
-        {
         // Move os segmentos chamando o script SnakeSegments
         snakeSegments.MoveSegments(previousPosition);
-        }
+        
         // Movimento Suave
-        //nav.SetDestination(_nextPos);
+        nav.SetDestination(_nextPos);
 
         yield return new WaitForSeconds(0.2f);
         canMove = true;
