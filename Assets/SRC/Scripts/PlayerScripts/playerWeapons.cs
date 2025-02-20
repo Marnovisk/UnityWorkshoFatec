@@ -28,6 +28,9 @@ public class playerWeapons : MonoBehaviour
    public void Start()
    {
        InvokeRepeating ("UseTargetWeapon", 0f, 1f);
+       InvokeRepeating ("UsePlayerPositionWeapon", 0f, 15f);
+       InvokeRepeating ("UseContinousSingleWeapon", 0f, 1f);
+       InvokeRepeating ("UseContinousSingleWeapon", 0f, 15f);
    }
 
    public void UseTargetWeapon()
@@ -58,6 +61,48 @@ public class playerWeapons : MonoBehaviour
 
             var projectile = Instantiate(weapon.proj, transform.position, Quaternion.identity);
             projectile.GetComponent<ITargetWeapon>().Init(closestTarget.transform);
+
+        }
+   }
+
+   public void UsePlayerPositionWeapon()
+   {
+        if (Weapons.Count <= 0) return;
+
+        foreach(WeaponScriptable weapon in Weapons)
+        {
+            if (weapon.type != WeaponType.PlayerPosition) continue;
+
+            var projectile = Instantiate(weapon.proj, transform.position, Quaternion.identity);
+            projectile.GetComponent<ITargetWeapon>().Init(this.transform);
+
+        }
+   }
+
+   public void UseContinousSingleWeapon()
+   {
+        if (Weapons.Count <= 0) return;
+
+        foreach(WeaponScriptable weapon in Weapons)
+        {
+            if (weapon.type != WeaponType.ConstinuousSingle) continue;
+
+            var projectile = Instantiate(weapon.proj, transform.position, Quaternion.LookRotation(this.transform.forward, this.transform.up));
+            projectile.GetComponent<ITargetWeapon>().Init(this.transform);
+
+        }
+   }
+
+   public void UseContinousConstantWeapon()
+   {
+        if (Weapons.Count <= 0) return;
+
+        foreach(WeaponScriptable weapon in Weapons)
+        {
+            if (weapon.type != WeaponType.ContinuousConstant) continue;
+
+            var projectile = Instantiate(weapon.proj, transform.position, Quaternion.LookRotation(this.transform.forward, this.transform.up));
+            projectile.GetComponent<ITargetWeapon>().Init(this.transform);
 
         }
    }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Alho
   m_EditorClassIdentifier: 
   Damage: 10
-  Range: 8
-  AttackSpeed: 6
-  projectileSpeed: 5
+  Range: 5
+  AttackSpeed: 8
+  projectileSpeed: 0
   currentCooldown: 0
-  proj: {fileID: 0}
-  type: 1
+  proj: {fileID: 2564018740095606831, guid: 3008fff88f644e7429f1f3909a42d929, type: 3}
+  type: 3

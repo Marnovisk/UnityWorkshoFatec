@@ -12,3 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc9a1aad24be664eb16e503ae442ca8, type: 3}
   m_Name: Faca
   m_EditorClassIdentifier: 
+  Damage: 10
+  Range: 0
+  AttackSpeed: 8
+  projectileSpeed: 8
+  currentCooldown: 0
+  proj: {fileID: 4163227178141692165, guid: ad2319b977ce9bc4bb83ac7214eebe19, type: 3}
+  type: 1

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 0
   Range: 0
-  Attack: 0
+  AttackSpeed: 0
   projectileSpeed: 0
   currentCooldown: 0
   proj: {fileID: 0}
-  type: 1
+  type: 0
