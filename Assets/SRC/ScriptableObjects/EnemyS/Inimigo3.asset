@@ -20,4 +20,4 @@ MonoBehaviour:
   AttackRange: 2
   AttackSpeed: 2
   AttackDamage: 1400000019000000
-  GFX: {fileID: 4737539376364554987, guid: 6f64def9310325c41aa45a6ea17175b7, type: 3}
+  GFX: {fileID: 4737539376364554987, guid: 71805b28c25e19b49a5e340951e4cc2d, type: 3}

@@ -52,7 +52,7 @@ public class playerSnakeMoviment : MonoBehaviour
         {
             StartCoroutine(Move());
         }
-                }
+    }
 
     private IEnumerator Move()
     {
@@ -65,16 +65,16 @@ public class playerSnakeMoviment : MonoBehaviour
         _nextPos = previousPosition + _dir * gridSize;
 
         // Rotaciona a cabeça para olhar na direção do movimento
-        //transform.rotation = Quaternion.LookRotation(_dir, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(_dir, Vector3.up);
 
         // Move a cabeça
-        //nav.Warp(_nextPos);
+        nav.Warp(_nextPos);
 
         // Move os segmentos chamando o script SnakeSegments
         snakeSegments.MoveSegments(previousPosition);
         
         // Movimento Suave
-        nav.SetDestination(_nextPos);
+        //nav.SetDestination(_nextPos);
 
         yield return new WaitForSeconds(0.2f);
         canMove = true;

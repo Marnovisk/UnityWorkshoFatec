@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc9a1aad24be664eb16e503ae442ca8, type: 3}
   m_Name: Pentagrama
   m_EditorClassIdentifier: 
-  Damage: 0
-  Range: 0
-  Attack: 0
+  Damage: 10
+  Range: 5
+  AttackSpeed: 3
   projectileSpeed: 0
-  proj: {fileID: 0}
-  type: 0
+  currentCooldown: 0
+  proj: {fileID: 3941676291298412042, guid: e5c82cf5103764a44a4469dfa0ebc4d2, type: 3}
+  type: 2

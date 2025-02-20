@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AreaProjectile : Projectile, ITargetWeapon
+{
+    public Vector3 targetPos;
+    public Vector3 targetDir;
+    
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
+    public override void Init(Transform ptarget)
+    {
+        base.Init();
+        targetPos = ptarget.position;
+        targetDir = (targetPos - transform.position).normalized;
+        transform.Rotate(targetDir, Space.World);
+        this.transform.position = targetPos;
+        isReady = true;
+
+        Destroy(this.gameObject, 10f);
+    }
+
+    public override void Update()
+    {
+        if(isReady == false) return;
+        base.Update();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Agua");
+         if (other.gameObject.tag != "Enemy") return;
+
+        other.gameObject.GetComponent<IDamagable>().TakeDamage(brain.Damage);
+
+        
+    }
+}
