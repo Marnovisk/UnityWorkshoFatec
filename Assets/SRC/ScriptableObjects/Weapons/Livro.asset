@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc9a1aad24be664eb16e503ae442ca8, type: 3}
   m_Name: Livro
   m_EditorClassIdentifier: 
-  Damage: 0
-  Range: 0
-  AttackSpeed: 0
-  projectileSpeed: 0
+  Damage: 10
+  Range: 2
+  AttackSpeed: 5
+  projectileSpeed: 10
   currentCooldown: 0
-  proj: {fileID: 0}
+  proj: {fileID: 7678952670058899973, guid: 6d0bb265e80bc164ca9d8123cdf788b4, type: 3}
   type: 0

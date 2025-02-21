@@ -30,7 +30,7 @@ public class playerWeapons : MonoBehaviour
        InvokeRepeating ("UseTargetWeapon", 0f, 1f);
        InvokeRepeating ("UsePlayerPositionWeapon", 0f, 15f);
        InvokeRepeating ("UseContinousSingleWeapon", 0f, 1f);
-       InvokeRepeating ("UseContinousSingleWeapon", 0f, 15f);
+       InvokeRepeating ("UseContinousConstantWeapon", 0f, 15f);
    }
 
    public void UseTargetWeapon()
