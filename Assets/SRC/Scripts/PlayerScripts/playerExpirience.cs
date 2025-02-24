@@ -7,6 +7,7 @@ public class playerExpirience : MonoBehaviour
     public playerWeapons WeaponsScript;
     public int NeededExpirience;
     public int currentExpirience;
+    [SerializeField] private GameObject _upgradeScreen;
 
     public void Awake()
     {
@@ -16,7 +17,7 @@ public class playerExpirience : MonoBehaviour
     public void LevelUp()
     {
         currentExpirience = 0;
-        NeededExpirience =+ 20;
+        NeededExpirience += 10;
 
         WeaponsScript.AddWeapon();
     }
@@ -27,7 +28,7 @@ public class playerExpirience : MonoBehaviour
 
         if(currentExpirience >= NeededExpirience)
         {
-            LevelUp();
+            _upgradeScreen.SetActive(true);
         }
     }
 }

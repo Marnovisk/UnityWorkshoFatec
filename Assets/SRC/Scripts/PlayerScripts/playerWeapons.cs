@@ -30,7 +30,17 @@ public class playerWeapons : MonoBehaviour
 
    public void UpgradeWeapon(WeaponScriptable weapon)
    {
+        
+   }
 
+   public void UpgradePrimaryWeapon()
+   {
+        Weapons[0].Damage += 5;
+   }
+
+   public void UpgradeSecondaryWeapon()
+   {
+        Weapons[1].Damage += 5;
    }
 
    public void UseWeapon(WeaponScriptable weapon)
