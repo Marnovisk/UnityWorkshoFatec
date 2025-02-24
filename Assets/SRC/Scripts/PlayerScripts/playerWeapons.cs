@@ -7,12 +7,25 @@ using UnityEngine.PlayerLoop;
 public class playerWeapons : MonoBehaviour
 {
    public  List <WeaponScriptable> Weapons;
-   public WeaponScriptable[] AllWeapons;
+   public List <WeaponScriptable> AllWeapons;
    public LayerMask EnemiesLayer;
 
    public void AddWeapon()
    {
-        Weapons.Add(AllWeapons[Random.Range(0, AllWeapons.Length)]);
+        Weapons.Add(AllWeapons[Random.Range(0, AllWeapons.Count)]);
+        for(int i = 0; i < Weapons.Count; i++)
+        {
+            WeaponScriptable weapon = Weapons[i];
+            for(int j = 0; j < AllWeapons.Count; j++)
+            {
+                if(weapon == AllWeapons[j])
+                {
+                    AllWeapons.Remove(weapon);
+                } 
+            } 
+        } 
+            
+              
    }
 
    public void UpgradeWeapon(WeaponScriptable weapon)

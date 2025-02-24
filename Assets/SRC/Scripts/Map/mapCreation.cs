@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class mapCreation : MonoBehaviour
@@ -24,7 +25,8 @@ public class mapCreation : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Collide");
-            var newPlane = Instantiate(planes[0], transform.position + spawnPosition, Quaternion.identity);
+            //var newPlane = Instantiate(planes[0], transform.position + spawnPosition, Quaternion.identity);
+            GameObject parent = this.transform.parent.GameObject();
         } 
 
         

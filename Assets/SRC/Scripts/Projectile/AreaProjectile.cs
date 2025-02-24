@@ -18,7 +18,7 @@ public class AreaProjectile : Projectile, ITargetWeapon
         targetPos = ptarget.position;
         targetDir = (targetPos - transform.position).normalized;
         transform.Rotate(targetDir, Space.World);
-        this.transform.position = targetPos;
+        this.transform.position = targetPos + new Vector3(0,-1,0);
         isReady = true;
 
         Destroy(this.gameObject, 10f);
