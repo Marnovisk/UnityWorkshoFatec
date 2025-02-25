@@ -2749,7 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planes:
-  - {fileID: 430613960530447632, guid: 0533552f764049b439a7d8a6222efa1c, type: 3}
+  - {fileID: 2628521495080860499, guid: 0cde28cc2b87bff4e85b3771a03a0874, type: 3}
   SpawnDir: down
 --- !u!65 &1566612328
 BoxCollider:

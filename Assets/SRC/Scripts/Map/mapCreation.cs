@@ -44,6 +44,7 @@ public class mapCreation : MonoBehaviour
             }
             var newPlane = Instantiate(planes[0], transform.position + spawnPosition, Quaternion.identity);
             GameObject parent = this.transform.parent.GameObject();
+            Destroy(this.gameObject);
         } 
 
         
