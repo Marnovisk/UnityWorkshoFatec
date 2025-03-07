@@ -28,19 +28,19 @@ public class mapCreation : MonoBehaviour
             Debug.Log("Player Collide");
             if(SpawnDir == "right")
             {
-               spawnPosition = new Vector3(29,-7,0);
+               spawnPosition = new Vector3(54,-7,0);
             }
             if(SpawnDir == "left")
             {
-                spawnPosition = new Vector3(-29,-7,0);
+                spawnPosition = new Vector3(-54,-7,0);
             }
             if(SpawnDir == "up")
             {
-                spawnPosition = new Vector3(0,-7,29);
+                spawnPosition = new Vector3(0,-7,54);
             }
             if(SpawnDir == "down")
             {
-                spawnPosition = new Vector3(0,-7,-29);
+                spawnPosition = new Vector3(0,-7,-54);
             }
             var newPlane = Instantiate(planes[0], transform.position + spawnPosition, Quaternion.identity);
             GameObject parent = this.transform.parent.GameObject();

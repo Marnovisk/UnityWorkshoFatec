@@ -18,10 +18,7 @@ public class playerPigSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddSegment(segmentPrefab);
-        }
+    
     }
 
     public void MoveSegments(Vector3 previousHeadPosition)

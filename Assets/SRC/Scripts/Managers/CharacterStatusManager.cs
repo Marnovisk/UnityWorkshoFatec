@@ -9,10 +9,11 @@ public class CharacterStatusManager : MonoBehaviour, IDamagable
 {
     public Status status;
     public event Action OnTakeDamage;
+    private PlayerStatusHUD statusHUD;
 
     private void Start()
     {
-        
+        statusHUD = GetComponent<PlayerStatusHUD>();
     }
 
     public void InitStatus(Status pStatus)
@@ -20,19 +21,25 @@ public class CharacterStatusManager : MonoBehaviour, IDamagable
         status.Health = pStatus.Health;
         status.Armor = pStatus.Armor;
         status.MagicResist = pStatus.MagicResist;
+        if(this.gameObject.tag == "Player")
+        {
+            statusHUD.UpdateHudLife(pStatus.Health);
+        }
     }
 
     private void Update()   
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        // if(Input.GetKeyDown(KeyCode.T))
+        // {
+        //     TakeDamage(Random.Range(1,5));
+        // }
+        if(this.gameObject.tag == "Player")
         {
-            TakeDamage(Random.Range(1,5));
+            statusHUD.UpdateHudLife(status.Health);
         }
     }
     public void TakeDamage(int amount)
     {
-        Debug.Log("Tomando " + amount + " de dano");
-
         status.Health -= amount;
 
         OnTakeDamage?.Invoke();
@@ -49,6 +56,10 @@ public class CharacterStatusManager : MonoBehaviour, IDamagable
 
     public void Die()
     {
+        if(this.gameObject.tag == "Player")
+        {
+            statusHUD.OnDeath();
+        }
         Destroy(this.gameObject);
     }
 }

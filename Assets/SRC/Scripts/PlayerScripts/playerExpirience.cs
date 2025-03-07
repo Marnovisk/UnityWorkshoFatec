@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerExpirience : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class playerExpirience : MonoBehaviour
     public int NeededExpirience;
     public int currentExpirience;
     [SerializeField] private GameObject _upgradeScreen;
+
+    public Text XPtext;
 
     public void Awake()
     {
@@ -25,10 +28,19 @@ public class playerExpirience : MonoBehaviour
     public void IncreaseXp(int amount)
     {
         currentExpirience += amount;
+        
 
         if(currentExpirience >= NeededExpirience)
         {
             _upgradeScreen.SetActive(true);
+            currentExpirience = 0;
         }
+
+        UpdateXPHud();
+    }
+
+    public void UpdateXPHud()
+    {
+        XPtext.text = currentExpirience.ToString();
     }
 }

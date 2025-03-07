@@ -8,9 +8,13 @@ public class playerSnakeMoviment : MonoBehaviour
     private NavMeshAgent nav;
     public Vector3 _dir;
     private Vector3 _nextPos;
+    private Rigidbody rb;
     public float gridSize = 1.0f; // Tamanho da grade de movimento
+    public float moveSpeed = 5f;
     public float moveDelay = 0.5f; // Tempo entre movimentos
     private bool canMove = true;
+
+    //private float moveTimer = 1f;
 
     [Header("Segments Controller")]
     public playerPigSpawner snakeSegments;
@@ -19,6 +23,7 @@ public class playerSnakeMoviment : MonoBehaviour
     {
         nav = GetComponent<NavMeshAgent>();
         snakeSegments = GetComponent<playerPigSpawner>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -48,10 +53,31 @@ public class playerSnakeMoviment : MonoBehaviour
 
     void FixedUpdate()
     {
-       if (canMove)
+        // moveTimer += Time.deltaTime;
+        // if (moveTimer >= 1f / moveSpeed)
+        // {
+        //     rbMove();
+        //     moveTimer = 0f;
+        // }
+
+        if (canMove)
         {
             StartCoroutine(Move());
         }
+    }
+
+    void rbMove()
+    {
+        // Guarda a posição anterior da cabeça antes de mover
+        Vector3 previousPosition = rb.position;
+
+        // Calcula a nova posição
+        _nextPos = previousPosition + _dir * gridSize;
+
+        rb.MovePosition(_nextPos);
+
+        snakeSegments.MoveSegments(previousPosition);
+
     }
 
     private IEnumerator Move()

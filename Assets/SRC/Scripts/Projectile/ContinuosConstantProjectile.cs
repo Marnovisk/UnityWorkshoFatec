@@ -50,22 +50,18 @@ public class ContinuosConstantProjectile : Projectile, ITargetWeapon
         if(transform.position == InitialPosition + target.position)
         {
             posToGo = SecondPosition;
-            Debug.Log("SecondPosition");
         }
         if(transform.position == SecondPosition + target.position)
         {
             posToGo = ThirdPosition;
-            Debug.Log("ThirdPosition");
         }
         if(transform.position == ThirdPosition + target.position)
         {
             posToGo = FinalPosition;
-            Debug.Log("FinalPosition");
         }
         if(transform.position == FinalPosition + target.position)
         {
             posToGo = InitialPosition;
-            Debug.Log("InitialPosition");
         }
         
     }

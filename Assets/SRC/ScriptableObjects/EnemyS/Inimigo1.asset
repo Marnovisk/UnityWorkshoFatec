@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Inimigo1
   m_EditorClassIdentifier: 
   Status:
-    Health: 100
+    Health: 50
     Armor: 10
     MagicResist: 15
-  speed: 2
+  speed: 1.5
   AttackRange: 5
   AttackSpeed: 2
   AttackDamage: 0a0000000f000000

@@ -9,10 +9,23 @@ public class playerWeapons : MonoBehaviour
    public  List <WeaponScriptable> Weapons;
    public List <WeaponScriptable> AllWeapons;
    public LayerMask EnemiesLayer;
+   public GameObject segmentPrefab;
+   public playerPigSpawner pigSpawner;
+
+
+    public void Start()
+    {
+        pigSpawner = GetComponent<playerPigSpawner>();
+        InvokeRepeating ("UseTargetWeapon", 0f, 1f);
+        InvokeRepeating ("UsePlayerPositionWeapon", 0f, 15f);
+        InvokeRepeating ("UseContinousSingleWeapon", 0f, 1f);
+        InvokeRepeating ("UseContinousConstantWeapon", 0f, 15f);
+    }
 
    public void AddWeapon()
    {
         Weapons.Add(AllWeapons[Random.Range(0, AllWeapons.Count)]);
+        pigSpawner.AddSegment(segmentPrefab);
         for(int i = 0; i < Weapons.Count; i++)
         {
             WeaponScriptable weapon = Weapons[i];
@@ -48,13 +61,7 @@ public class playerWeapons : MonoBehaviour
 
    }
 
-   public void Start()
-   {
-       InvokeRepeating ("UseTargetWeapon", 0f, 1f);
-       InvokeRepeating ("UsePlayerPositionWeapon", 0f, 15f);
-       InvokeRepeating ("UseContinousSingleWeapon", 0f, 1f);
-       InvokeRepeating ("UseContinousConstantWeapon", 0f, 15f);
-   }
+   
 
    public void UseTargetWeapon()
    {
